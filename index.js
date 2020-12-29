@@ -9,10 +9,18 @@ function getDogImage(dogNum) {
 
 function watchForm(){
     $('form').submit(event => {
+        if($('#dogamt').val().length===0){
+            event.preventDefault();
+            let dogNum = 3;
+            console.log(dogNum);
+            getDogImage(dogNum);
+        }else{
         event.preventDefault();
         let dogNum= $('#dogamt').val();
         console.log(dogNum);
         getDogImage(dogNum);
+        $('#dogamt').val('');
+        }
     })
 }
 
